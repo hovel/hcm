@@ -1,0 +1,15 @@
+{% extends 'site_base.html' %}
+{% load static %}
+
+{% block extra_script %}
+  {{ block.super }}
+  <script type="text/javascript" src="{% static 'pybb/js/pybbjs.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+  {% block breadcrumb %}
+      {% include "pybb/breadcrumb.html" %}
+  {% endblock %}
+
+  {% block content %}{% endblock %}
+{% endblock %}

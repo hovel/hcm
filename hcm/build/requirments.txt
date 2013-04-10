@@ -1,0 +1,11 @@
+django>=1.5.1
+south
+pillow
+sorl-thumbnail
+pytz
+pytils
+django-pure-pagination
+django-forms-bootstrap
+pinax-theme-bootstrap
+pybbm
+imagestore

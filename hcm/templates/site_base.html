@@ -1,0 +1,24 @@
+{% extends 'theme_bootstrap/base.html' %}
+
+{% load i18n %}
+
+{% block site_brand %}<a class="brand" href="/">HCM</a>{% endblock %}
+
+{% block nav %}
+  <ul class="nav">
+    <li id="tab_forum">
+      <a href="{% url 'pybb:index' %}">{% trans 'Forum' %}</a>
+    </li>
+    {% if user.is_staff %}
+      <li id="tab_admin">
+        <a href="{% url 'admin:index' %}">{% trans 'Admin' %}</a>
+      </li>
+    {% endif %}
+  </ul>
+{% endblock %}
+
+{% block body %}
+  <div class="row-fluid">
+    {% block content %}{% endblock %}
+  </div>
+{% endblock %}
