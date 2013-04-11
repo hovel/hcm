@@ -12,12 +12,10 @@
                 <ul class="dropdown-menu">
                     <li><a href="{% url "userena_profile_edit" username=request.user.username %}"><i class="icon-user"></i> {% trans "Settings" %}</a></li>
                     <li class="divider"></li>
-                    <form action="{% url "userena_signout" %}" method="POST">
-                        <li>
-                            {% csrf_token %}
-                            <a id="account_logout" href="{% url "userena_signout" %}"><i class="icon-off"></i> {% trans "Log out" %}</a>
-                        </li>
-                    </form>
+                    <li>
+                        <form id="logout_form" action="{% url "userena_signout" %}" method="POST" style="display: none;">{% csrf_token %}</form>
+                        <a id="account_logout" href="{% url "userena_signout" %}"><i class="icon-off"></i> {% trans "Log out" %}</a>
+                    </li>
                 </ul>
             </li>
         {% else %}
