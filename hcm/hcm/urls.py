@@ -10,11 +10,11 @@ from hcm_profile.forms import HcmEditProfileForm
 admin.autodiscover()
 
 urlpatterns = patterns('',
-   url(r'^accounts/(?P<username>[\.\w-]+)/edit/$', userena_views.profile_edit, kwargs={'edit_profile_form': HcmEditProfileForm},
+    url(r'^accounts/(?P<username>[\.\w-]+)/edit/$', userena_views.profile_edit, kwargs={'edit_profile_form': HcmEditProfileForm},
        name='userena_profile_edit'),
     url(r'^accounts/', include('userena.urls')),
     url(r'^forum/', include('pybb.urls', namespace='pybb')),
-    url(r'^messages/', include('userena.contrib.umessages.urls')),
+    url(r'^gallery/', include('imagestore.urls', namespace='imagestore')),
     url(r'^admin/', include(admin.site.urls)),
 )
 

@@ -7,5 +7,5 @@ pytils
 django-pure-pagination
 django-forms-bootstrap
 pinax-theme-bootstrap
-pybbm
-imagestore
+-e git+https://github.com/hovel/pybbm.git#egg=pybbm
+-e git+https://github.com/hovel/imagestore.git#egg=imagestore

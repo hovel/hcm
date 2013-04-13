@@ -4,26 +4,53 @@
 
 {% block site_brand %}<a class="brand" href="/">HCM</a>{% endblock %}
 
+{% block extra_style %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}prettyphoto/css/prettyPhoto.css" type="text/css" media="screen"
+          charset="utf-8"/>
+{% endblock %}
+
 {% block extra_script %}
-  {{ block.super }}
-  <script type="text/javascript" src="{% static 'js/hcm.js' %}"></script>
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'js/hcm.js' %}"></script>
+
+    <script src="{{ STATIC_URL }}prettyphoto/js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
+
+    <script type="text/javascript" charset="utf-8">
+        var prettyparams = {
+            animation_speed: 'fast',
+            slideshow: 3000,
+            autoplay_slideshow: false,
+            opacity: 0.7,
+            show_title: true,
+            allow_resize: true,
+            default_width: 1000,
+            default_height: 344,
+            counter_separator_label: '/',
+            theme: 'facebook',
+            overlay_gallery: true,
+            changepicturecallback: function () {
+                $pp_overlay.css({'height': $(document).height()})
+            }
+        };
+        $(function () {
+            $("a[rel^='gallery-image']").prettyPhoto(prettyparams)
+        });
+    </script>
 {% endblock %}
 
 {% block nav %}
-  <ul class="nav">
-    <li id="tab_forum">
-      <a href="{% url 'pybb:index' %}">{% trans 'Forum' %}</a>
-    </li>
-    {% if user.is_staff %}
-      <li id="tab_admin">
-        <a href="{% url 'admin:index' %}">{% trans 'Admin' %}</a>
-      </li>
-    {% endif %}
-  </ul>
+    <ul class="nav">
+        <li id="tab_forum">
+            <a href="{% url 'pybb:index' %}">{% trans 'Forum' %}</a>
+        </li>
+        {% if user.is_staff %}
+            <li id="tab_admin">
+                <a href="{% url 'admin:index' %}">{% trans 'Admin' %}</a>
+            </li>
+        {% endif %}
+    </ul>
 {% endblock %}
 
 {% block body %}
-  <div class="row-fluid">
     {% block content %}{% endblock %}
-  </div>
 {% endblock %}

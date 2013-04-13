@@ -3,12 +3,11 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-13 11:33+0400\n"
+"POT-Creation-Date: 2013-04-13 21:32+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,34 +34,54 @@ msgstr "Войти"
 msgid "Sign up"
 msgstr "Регистрация"
 
-#: templates/profile_detail.html:8
+#: templates/profile_detail.html:5
+msgid "User albums"
+msgstr "Альбомы пользователя"
+
+#: templates/profile_detail.html:9
 msgid "Name"
 msgstr "Имя"
 
-#: templates/profile_detail.html:12
+#: templates/profile_detail.html:13
 msgid "Email"
 msgstr "Адрес email"
 
-#: templates/profile_detail.html:16
+#: templates/profile_detail.html:17
 msgid "Age"
 msgstr "Возраст"
 
-#: templates/profile_detail.html:20
+#: templates/profile_detail.html:21
 msgid "Website"
 msgstr "Адрес веб-сайта"
 
-#: templates/profile_detail.html:24
+#: templates/profile_detail.html:25
 msgid "Location"
 msgstr "Местоположение"
 
-#: templates/profile_detail.html:28
+#: templates/profile_detail.html:29
 msgid "About me"
 msgstr "Обо мне"
 
-#: templates/site_base.html:15
+#: templates/site_base.html:44
 msgid "Forum"
 msgstr "Форум"
 
-#: templates/site_base.html:19
+#: templates/site_base.html:48
 msgid "Admin"
 msgstr "Админка"
+
+#: templates/pybb/_need_to_login_message.html:3
+msgid "Register"
+msgstr "Зарегистрируйтесь"
+
+#: templates/pybb/_need_to_login_message.html:3
+msgid "or"
+msgstr "или"
+
+#: templates/pybb/_need_to_login_message.html:3
+msgid "login"
+msgstr "войдите"
+
+#: templates/pybb/_need_to_login_message.html:3
+msgid "to create to post a reply"
+msgstr "для создания сообщения"

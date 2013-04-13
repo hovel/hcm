@@ -2,6 +2,7 @@
 {% load i18n %}
 {% block profile_details %}
   {% include 'pybb/avatar.html' %}
+  <a href="{% url 'imagestore:user' username=profile.user.get_username %}">{% trans 'User albums' %}</a>
   <dl>
     {% block profile_definition_list %}
       {% if profile.user.get_full_name %}
