@@ -120,6 +120,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.request',
     'django.contrib.messages.context_processors.messages',
     'pybb.context_processors.processor',
+    'postman.context_processors.inbox',
 )
 
 ROOT_URLCONF = 'hcm.urls'
@@ -152,11 +153,14 @@ INSTALLED_APPS = (
     'userena',
     'tagging',
     'fancy_autocomplete',
+    'notification',
+    # 'mailer', include for production in settings_local
 
-    'pybb',
-    'imagestore',
-    'hcm',
-    'hcm_profile',
+    'postman',  # messages app
+    'pybb',  # forum app
+    'imagestore',  # albums app
+    'hcm',  # hcm core app
+    'hcm_profile',  # hcm profile app
 )
 
 # A sample logging configuration. The only tangible logging
@@ -206,6 +210,10 @@ USERENA_PROFILE_DETAIL_TEMPLATE = 'profile_detail.html'
 
 PYBB_PROFILE_RELATED_NAME = 'hcm_profile'
 PYBB_TEMPLATE = 'forum_base.html'
+
+POSTMAN_DISALLOW_ANONYMOUS = True
+POSTMAN_DISABLE_USER_EMAILING = True
+POSTMAN_AUTO_MODERATE_AS = True
 
 try:
     from settings_local import *

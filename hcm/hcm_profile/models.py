@@ -14,4 +14,5 @@ class MainUserProfile(UserenaBaseProfile, PybbProfile):
         return self.avatar_url
 
     def get_absolute_url(self):
-        return reverse('userena_profile_detail', kwargs={'username': self.user.get_username() })
+        return reverse('pybb:user', kwargs={'username': self.user.get_username()})
+        #return reverse('userena_profile_detail', kwargs={'username': self.user.get_username() })

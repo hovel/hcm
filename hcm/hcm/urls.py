@@ -15,6 +15,7 @@ urlpatterns = patterns('',
     url(r'^accounts/', include('userena.urls')),
     url(r'^forum/', include('pybb.urls', namespace='pybb')),
     url(r'^gallery/', include('imagestore.urls', namespace='imagestore')),
+    url(r'^messages/', include('postman.urls')),
     url(r'^admin/', include(admin.site.urls)),
 )
 
