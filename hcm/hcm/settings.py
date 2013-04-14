@@ -154,6 +154,7 @@ INSTALLED_APPS = (
     'tagging',
     'fancy_autocomplete',
     'notification',
+    'ajax_select',
     # 'mailer', include for production in settings_local
 
     'postman',  # messages app
@@ -211,9 +212,20 @@ USERENA_PROFILE_DETAIL_TEMPLATE = 'profile_detail.html'
 PYBB_PROFILE_RELATED_NAME = 'hcm_profile'
 PYBB_TEMPLATE = 'forum_base.html'
 
+
+AJAX_LOOKUP_CHANNELS = {
+    'user': ('hcm_profile.lookups', 'UserLookup'),
+}
+AJAX_SELECT_BOOTSTRAP = True
+AJAX_SELECT_INLINES = 'inline'
+
+
 POSTMAN_DISALLOW_ANONYMOUS = True
 POSTMAN_DISABLE_USER_EMAILING = True
 POSTMAN_AUTO_MODERATE_AS = True
+POSTMAN_AUTOCOMPLETER_APP = {
+    'arg_default': 'user'
+}
 
 try:
     from settings_local import *

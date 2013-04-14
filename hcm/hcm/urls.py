@@ -16,6 +16,7 @@ urlpatterns = patterns('',
     url(r'^forum/', include('pybb.urls', namespace='pybb')),
     url(r'^gallery/', include('imagestore.urls', namespace='imagestore')),
     url(r'^messages/', include('postman.urls')),
+    url(r'^ajax_lookup', include('ajax_select.urls')),
     url(r'^admin/', include(admin.site.urls)),
 )
 
