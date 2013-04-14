@@ -7,13 +7,10 @@
 {% block extra_style %}
     <link rel="stylesheet" href="{{ STATIC_URL }}prettyphoto/css/prettyPhoto.css" type="text/css" media="screen"
           charset="utf-8"/>
-    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10/themes/smoothness/jquery-ui.css" type="text/css" />
 {% endblock %}
 
 {% block extra_script %}
     {{ block.super }}
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10/jquery-ui.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10/i18n/jquery-ui-i18n.min.js"></script>
     <script type="text/javascript" src="{% static 'js/hcm.js' %}"></script>
 
     <script src="{{ STATIC_URL }}prettyphoto/js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>

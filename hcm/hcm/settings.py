@@ -152,7 +152,6 @@ INSTALLED_APPS = (
     'easy_thumbnails',
     'userena',
     'tagging',
-    'fancy_autocomplete',
     'notification',
     'ajax_select',
     # 'mailer', include for production in settings_local
@@ -215,10 +214,12 @@ PYBB_TEMPLATE = 'forum_base.html'
 
 AJAX_LOOKUP_CHANNELS = {
     'user': ('hcm_profile.lookups', 'UserLookup'),
+    'tag': {'model': 'tagging.Tag', 'search_field': 'name'}
 }
 AJAX_SELECT_BOOTSTRAP = True
 AJAX_SELECT_INLINES = 'inline'
 
+IMAGESTORE_IMAGE_FORM = 'hcm.forms.HcmImageForm'
 
 POSTMAN_DISALLOW_ANONYMOUS = True
 POSTMAN_DISABLE_USER_EMAILING = True

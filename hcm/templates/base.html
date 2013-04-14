@@ -5,11 +5,6 @@
     {% block extrahead %}{% endblock %} {# for django-postman #}
 {% endblock %}
 
-{% block extra_script %}
-    {{ block.super }}
-    {% block head %}{% endblock %}
-{% endblock %}
-
 {% block body %}
     {# for django-postman #}
     <div class="row-fluid">
