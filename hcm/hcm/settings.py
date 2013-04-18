@@ -192,6 +192,8 @@ LOGGING = {
     }
 }
 
+LOGIN_URL = '/accounts/signin/'
+
 AUTH_PROFILE_MODULE = 'hcm_profile.MainUserProfile'
 
 AUTHENTICATION_BACKENDS = (

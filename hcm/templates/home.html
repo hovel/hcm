@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% load pybb_tags %}
+
+{% block content %}
+    <div class="span6">
+        {% pybb_get_latest_posts cnt=10 as latest_posts %}
+        {% for post in latest_posts %}
+            <div class="well well-small">{{ post.user }}: <a href="{{ post.get_absolute_url }}">{{ post }}</a></div>
+        {% endfor %}
+    </div>
+{% endblock %}
