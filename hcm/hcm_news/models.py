@@ -11,7 +11,7 @@ class News(models.Model):
     author = models.ForeignKey(get_user_model(), verbose_name=_('author'))
     title = models.CharField(max_length=255, verbose_name=_('title'))
     slug = models.SlugField(verbose_name=_('slug'))
-    body = models.TextField(verbose_name=_('body'))
+    body = models.TextField(verbose_name=_('news body'), help_text=_('Can be used markdown markup for styled output'))
     date_published = models.DateField(verbose_name=_('date published'))
     is_published = models.BooleanField(verbose_name=_('is published'), default=True)
 

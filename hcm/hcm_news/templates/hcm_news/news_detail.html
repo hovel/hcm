@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
 
+{% load news_tags %}
+
 {% block content %}
     <h1>{{ object.title }}</h1>
     <div>
-        <div class="news-detail-body">{{ object.body|safe }}</div>
+        <div class="news-detail-body">{{ object.body|markdown_str|safe }}</div>
     </div>
 {% endblock %}

@@ -14,7 +14,7 @@
         {% for news in latest_news %}
             <div class="well well-small">
                 <p><a href="{{ news.get_absolute_url }}">{{ news.title }}</a></p>
-                <p>{{ news.body|safe|truncatewords_html:15 }}</p>
+                <p>{{ news.body|markdown_str|safe|truncatewords_html:15 }}</p>
             </div>
         {% endfor %}
     </div>

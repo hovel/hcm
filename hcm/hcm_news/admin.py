@@ -12,4 +12,5 @@ class NewsAdmin(admin.ModelAdmin):
             obj.author = request.user
         super(NewsAdmin, self).save_model(request, obj, form, change)
 
+
 admin.site.register(News, NewsAdmin)

@@ -148,18 +148,18 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'south',
-    'sorl.thumbnail',
+    'sorl.thumbnail',  # uses in imagestore, pybb
     'pure_pagination',
     'django_forms_bootstrap',
     'pinax_theme_bootstrap',
-    'guardian',
-    'easy_thumbnails',
-    'userena',
+    'guardian',  # uses in userena
+    'easy_thumbnails',  # uses in userena
     'tagging',
-    'notification',
-    'ajax_select',
+    'notification',  # uses in postman
+    'ajax_select',  # uses in postman, imagestore
     # 'mailer', include for production in settings_local
 
+    'userena',  # sign in/sign up app
     'postman',  # messages app
     'pybb',  # forum app
     'imagestore',  # albums app
