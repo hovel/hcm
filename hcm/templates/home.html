@@ -1,12 +1,21 @@
 {% extends 'base.html' %}
 
-{% load pybb_tags %}
+{% load pybb_tags news_tags %}
 
 {% block content %}
     <div class="span6">
         {% pybb_get_latest_posts cnt=10 as latest_posts %}
         {% for post in latest_posts %}
             <div class="well well-small">{{ post.user }}: <a href="{{ post.get_absolute_url }}">{{ post }}</a></div>
+        {% endfor %}
+    </div>
+    <div class="span6">
+        {% news_get_latest cnt=10 as latest_news %}
+        {% for news in latest_news %}
+            <div class="well well-small">
+                <p><a href="{{ news.get_absolute_url }}">{{ news.title }}</a></p>
+                <p>{{ news.body|safe|truncatewords_html:15 }}</p>
+            </div>
         {% endfor %}
     </div>
 {% endblock %}

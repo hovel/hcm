@@ -40,6 +40,10 @@ TIME_ZONE = 'UTC'
 # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = 'en-us'
 
+LOCALE_PATHS = (
+    os.path.join(PROJECT_ROOT, '../locale'),
+)
+
 SITE_ID = 1
 
 # If you set this to False, Django will make some optimizations so as not
@@ -160,6 +164,7 @@ INSTALLED_APPS = (
     'pybb',  # forum app
     'imagestore',  # albums app
     'hcm',  # hcm core app
+    'hcm_news',  # hcm news app
     'hcm_profile',  # hcm profile app
 )
 

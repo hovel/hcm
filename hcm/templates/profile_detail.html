@@ -1,34 +1,63 @@
 {% extends 'userena/profile_detail.html' %}
-{% load i18n %}
+
+{% load i18n thumbnail %}
+
 {% block profile_details %}
-  {% include 'pybb/avatar.html' %}
-  <a href="{% url 'imagestore:user' username=profile.user.get_username %}">{% trans 'User albums' %}</a>
-  <dl>
-    {% block profile_definition_list %}
-      {% if profile.user.get_full_name %}
-        <dt>{% trans "Name" %}</dt>
-        <dd>{{ profile.user.get_full_name }}</dd>
-      {% endif %}
-      {% if profile.user.email and not hide_email %}
-        <dt>{% trans "Email" %}</dt>
-        <dd>{{ profile.user.email }}</dd>
-      {% endif %}
-      {% if profile.age %}
-        <dt>{% trans "Age" %}</dt>
-        <dd>{{ profile.age }}</dd>
-      {% endif %}
-      {% if profile.website %}
-        <dt>{% trans "Website" %}</dt>
-        <dd>{{ profile.website|urlize }}</dd>
-      {% endif %}
-      {% if profile.location %}
-        <dt>{% trans "Location" %}</dt>
-        <dd>{{ profile.location }}</dd>
-      {% endif %}
-      {% if profile.about_me %}
-        <dt>{% trans "About me" %}</dt>
-        <dd>{{ profile.about_me }}</dd>
-      {% endif %}
-    {% endblock %}
-  </dl>
+    <div class="row-fluid">
+        {% include 'pybb/avatar.html' %}
+    </div>
+    <div class="row-fluid">
+        {% for album in profile.user.albums.all %}
+            {% if album.is_public %}
+                <div class="span3">
+                    <a href="{{ album.get_absolute_url }}">
+                        {% if album.get_head %}
+                            {% thumbnail album.get_head.image "150x150" crop='center' as album_head %}
+                                <img class="preview" {% if album.name %} alt="{{ album.name }}" {% endif %}
+                                     src="{{ album_head.url }}">
+                            {% endthumbnail %}
+                        {% else %}
+                            [{% trans "Empty album" %}]
+                        {% endif %}
+                        <br>
+                        <span class="album-name">{{ album.name }}</span>
+                        {% if not view_user and IMAGESTORE_SHOW_USER %}
+                            <br>
+                            <span class="album-user">
+                                {% trans "user" %}: {{ album.user }}
+                            </span>
+                        {% endif %}
+                    </a>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+    <dl>
+        {% block profile_definition_list %}
+            {% if profile.user.get_full_name %}
+                <dt>{% trans "Name" %}</dt>
+                <dd>{{ profile.user.get_full_name }}</dd>
+            {% endif %}
+            {% if profile.user.email and not hide_email %}
+                <dt>{% trans "Email" %}</dt>
+                <dd>{{ profile.user.email }}</dd>
+            {% endif %}
+            {% if profile.age %}
+                <dt>{% trans "Age" %}</dt>
+                <dd>{{ profile.age }}</dd>
+            {% endif %}
+            {% if profile.website %}
+                <dt>{% trans "Website" %}</dt>
+                <dd>{{ profile.website|urlize }}</dd>
+            {% endif %}
+            {% if profile.location %}
+                <dt>{% trans "Location" %}</dt>
+                <dd>{{ profile.location }}</dd>
+            {% endif %}
+            {% if profile.about_me %}
+                <dt>{% trans "About me" %}</dt>
+                <dd>{{ profile.about_me }}</dd>
+            {% endif %}
+        {% endblock %}
+    </dl>
 {% endblock %}

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-13 21:32+0400\n"
+"POT-Creation-Date: 2013-04-21 08:40+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,43 +22,51 @@ msgstr ""
 msgid "Settings"
 msgstr "Настройки"
 
-#: templates/_account_bar.html:17
+#: templates/_account_bar.html:14
+msgid "Messages"
+msgstr "Сообщения"
+
+#: templates/_account_bar.html:18
 msgid "Log out"
 msgstr "Выйти"
 
-#: templates/_account_bar.html:22
+#: templates/_account_bar.html:23
 msgid "Log in"
 msgstr "Войти"
 
-#: templates/_account_bar.html:23
+#: templates/_account_bar.html:24
 msgid "Sign up"
 msgstr "Регистрация"
 
-#: templates/profile_detail.html:5
-msgid "User albums"
-msgstr "Альбомы пользователя"
+#: templates/profile_detail.html:20
+msgid "Empty album"
+msgstr "Пустой альбом"
 
-#: templates/profile_detail.html:9
+#: templates/profile_detail.html:27
+msgid "user"
+msgstr "пользователь"
+
+#: templates/profile_detail.html:38
 msgid "Name"
 msgstr "Имя"
 
-#: templates/profile_detail.html:13
+#: templates/profile_detail.html:42
 msgid "Email"
 msgstr "Адрес email"
 
-#: templates/profile_detail.html:17
+#: templates/profile_detail.html:46
 msgid "Age"
 msgstr "Возраст"
 
-#: templates/profile_detail.html:21
+#: templates/profile_detail.html:50
 msgid "Website"
 msgstr "Адрес веб-сайта"
 
-#: templates/profile_detail.html:25
+#: templates/profile_detail.html:54
 msgid "Location"
 msgstr "Местоположение"
 
-#: templates/profile_detail.html:29
+#: templates/profile_detail.html:58
 msgid "About me"
 msgstr "Обо мне"
 
@@ -66,7 +74,11 @@ msgstr "Обо мне"
 msgid "Forum"
 msgstr "Форум"
 
-#: templates/site_base.html:48
+#: templates/site_base.html:47
+msgid "News"
+msgstr "Новости"
+
+#: templates/site_base.html:51
 msgid "Admin"
 msgstr "Админка"
 
