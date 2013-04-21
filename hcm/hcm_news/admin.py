@@ -6,6 +6,8 @@ class NewsAdmin(admin.ModelAdmin):
     exclude = ('author', )
     prepopulated_fields = {'slug': ('title', )}
     date_hierarchy = 'date_published'
+    list_display = ('title', 'author', 'date_published', 'is_published', )
+    list_editable = ('is_published', )
 
     def save_model(self, request, obj, form, change):
         if not obj.pk:

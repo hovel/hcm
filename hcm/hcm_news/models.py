@@ -20,6 +20,7 @@ class News(models.Model):
         verbose_name = pgettext_lazy('singular', 'news')
         verbose_name_plural = pgettext_lazy('plural', 'news')
         unique_together = (('date_published', 'slug'),)
+        ordering = ('-date_published', )
 
     def __str__(self):
         return self.title
