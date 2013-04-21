@@ -15,19 +15,19 @@ except ImportError:
     Page.pages = lambda self: [PageRepr(i) for i in range(1, self.paginator.num_pages + 1)]
 
 
-class NewsFitlerMixin(object):
+class NewsFilterMixin(object):
     def get_queryset(self):
-        qs = super(NewsFitlerMixin, self).get_queryset()
+        qs = super(NewsFilterMixin, self).get_queryset()
         return qs.filter(is_published=True)
 
 
-class NewsListView(NewsFitlerMixin, ListView):
+class NewsListView(NewsFilterMixin, ListView):
     model = News
     paginate_by = 10
     paginator_class = Paginator
 
 
-class NewsDetailView(NewsFitlerMixin, DateDetailView):
+class NewsDetailView(NewsFilterMixin, DateDetailView):
     model = News
     date_field = 'date_published'
     month_format = '%m'

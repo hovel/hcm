@@ -1,7 +1,6 @@
 from __future__ import unicode_literals
 from django.conf.urls import patterns, url
-from hcm_news.views import NewsListView
-from hcm_news.views import NewsDetailView
+from hcm_news.views import NewsListView, NewsDetailView
 
 urlpatterns = patterns('',
     url(r'^$', NewsListView.as_view(), name='news_news_list'),
