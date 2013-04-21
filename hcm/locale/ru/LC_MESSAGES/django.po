@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-21 08:40+0000\n"
+"POT-Creation-Date: 2013-04-21 19:50+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,6 +37,18 @@ msgstr "Войти"
 #: templates/_account_bar.html:24
 msgid "Sign up"
 msgstr "Регистрация"
+
+#: templates/home.html:7
+msgid "Latest forum posts"
+msgstr "Последние сообщения на форуме"
+
+#: templates/home.html:14
+msgid "Latest news"
+msgstr "Последние новости"
+
+#: templates/home.html:23
+msgid "Latest blog posts"
+msgstr "Последние сообщения в блогах"
 
 #: templates/profile_detail.html:20
 msgid "Empty album"

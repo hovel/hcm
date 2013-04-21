@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="blog-post-list">
+        {% for post in post_list %}
+            <div class="blog-post-list-item"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></div>
+        {% endfor %}
+    </div>
+{% endblock %}

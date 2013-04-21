@@ -165,6 +165,7 @@ INSTALLED_APPS = (
     'imagestore',  # albums app
     'hcm',  # hcm core app
     'hcm_news',  # hcm news app
+    'hcm_blog',  # hcm blog app
     'hcm_profile',  # hcm profile app
 )
 
