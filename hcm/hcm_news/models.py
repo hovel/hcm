@@ -4,6 +4,7 @@ from django.db import models
 from django.contrib.auth import get_user_model
 from django.utils.encoding import python_2_unicode_compatible
 from django.utils.translation import ugettext_lazy as _, pgettext_lazy
+from django.utils.timezone import now
 
 
 @python_2_unicode_compatible
@@ -12,7 +13,7 @@ class News(models.Model):
     title = models.CharField(max_length=255, verbose_name=_('title'))
     slug = models.SlugField(verbose_name=_('slug'))
     body = models.TextField(verbose_name=_('news body'), help_text=_('Can be used markdown markup for styled output'))
-    date_published = models.DateField(verbose_name=_('date published'))
+    date_published = models.DateField(verbose_name=_('date published'), default=now)
     is_published = models.BooleanField(verbose_name=_('is published'), default=True)
 
     class Meta:
