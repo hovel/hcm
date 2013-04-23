@@ -46,6 +46,9 @@
         <li>
             <a href="{% url 'news_news_list' %}">{% trans 'News' %}</a>
         </li>
+        <li>
+            <a href="{% url 'blog_post_list' %}">{% trans 'Blogs' %}</a>
+        </li>
         {% if user.is_staff %}
             <li id="tab_admin">
                 <a href="{% url 'admin:index' %}">{% trans 'Admin' %}</a>

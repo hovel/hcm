@@ -1,5 +1,10 @@
+from django.core.exceptions import PermissionDenied
+from django.core.urlresolvers import reverse
+from django.db.models import Q
 from django.views.generic.dates import DateDetailView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
+from hcm_blog.forms import PostCreateUpdateForm
 from hcm_blog.models import Post
 
 
@@ -17,7 +22,7 @@ except ImportError:
 class PostFilterMixin(object):
     def get_queryset(self):
         qs = super(PostFilterMixin, self).get_queryset()
-        return qs.filter(is_published=True)
+        return qs.filter(Q(is_published=True) | Q(author=self.request.user))
 
 
 class PostListView(PostFilterMixin, ListView):
@@ -48,3 +53,61 @@ class PostDetailView(PostFilterMixin, DateDetailView):
     month_format = '%m'
     day_format = '%d'
     year_format = '%Y'
+
+
+class PostCreateView(CreateView):
+    model = Post
+    form_class = PostCreateUpdateForm
+
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.has_perms('hcm_blog.add_post'):
+            raise PermissionDenied
+        return super(PostCreateView, self).dispatch(request, *args, **kwargs)
+
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.author = self.request.user
+        self.object.save()
+        return super(PostCreateView, self).form_valid(form)
+
+
+class PostUpdateView(UpdateView):
+    model = Post
+    form_class = PostCreateUpdateForm
+
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.has_perms('hcm_blog.change_post'):
+            raise PermissionDenied
+        return super(PostUpdateView, self).dispatch(request, *args, **kwargs)
+
+    def get_object(self, queryset=None):
+        obj = super(PostUpdateView, self).get_object(queryset)
+        if obj.author == self.request.user or self.request.user.is_staff:
+            return obj
+        else:
+            raise PermissionDenied
+
+
+class PostDeleteView(DeleteView):
+    model = Post
+    template_name = 'hcm_blog/post_form.html'
+
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.has_perms('hcm_blog.delete_post'):
+            raise PermissionDenied
+        return super(PostDeleteView, self).dispatch(request, *args, **kwargs)
+
+    def get_object(self, queryset=None):
+        obj = super(PostDeleteView, self).get_object(queryset)
+        if obj.author == self.request.user or self.request.user.is_staff:
+            return obj
+        else:
+            raise PermissionDenied
+
+    def get_context_data(self, **kwargs):
+        ctx = super(PostDeleteView, self).get_context_data(**kwargs)
+        ctx['action'] = 'delete'
+        return ctx
+
+    def get_success_url(self):
+        return reverse('blog_post_list')

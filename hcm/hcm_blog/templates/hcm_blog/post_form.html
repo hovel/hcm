@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+
+{% block content %}
+    <div class="blog-post-form">
+        <form method="post">
+            {% csrf_token %}
+            {{ form }}
+            {% if action == 'delete' %}
+                {% trans 'Do you really want to delete post' %}: {{ object.title }}?<br>
+            {% endif %}
+            <input type="submit" value="{% if action == 'delete' %}{% trans 'Yes' %}{% else %}{% trans 'Save' %}{% endif %}">
+            <a href="{{ object.get_absolute_url }}">{% if action == 'delete' %}{% trans 'No' %}{% else %}{% trans 'Cancel' %}{% endif %}</a>
+        </form>
+    </div>
+{% endblock %}

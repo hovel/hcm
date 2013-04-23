@@ -157,6 +157,7 @@ INSTALLED_APPS = (
     'tagging',
     'notification',  # uses in postman
     'ajax_select',  # uses in postman, imagestore
+    'unidecode',  # uses for slugify unicode strings
     # 'mailer', include for production in settings_local
 
     'userena',  # sign in/sign up app

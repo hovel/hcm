@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-21 19:48+0000\n"
+"POT-Creation-Date: 2013-04-24 01:36+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,46 +18,78 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 
-#: models.py:14
+#: models.py:18
 msgid "author"
 msgstr "автор"
 
-#: models.py:15
+#: models.py:19
 msgid "title"
 msgstr "заголовок"
 
-#: models.py:16
+#: models.py:20
 msgid "slug"
 msgstr "метка"
 
-#: models.py:17
+#: models.py:21
 msgid "blog post body"
 msgstr "текст сообщения"
 
-#: models.py:18
+#: models.py:22
 msgid "Can be used markdown markup for styled output"
 msgstr "Может быть использована разметка Markdown"
 
-#: models.py:19
+#: models.py:23
 msgid "blog post html"
 msgstr "текст сообщения (html)"
 
-#: models.py:20
+#: models.py:24
 msgid "date published"
 msgstr "дата публикации"
 
-#: models.py:21
+#: models.py:25
 msgid "is published"
 msgstr "опубликовать"
 
-#: models.py:22
+#: models.py:26
 msgid "tags"
 msgstr "теги"
 
-#: models.py:25
+#: models.py:29
 msgid "blog post"
 msgstr "сообщение в блоге"
 
-#: models.py:26
+#: models.py:30
 msgid "blog posts"
 msgstr "сообщения в блоге"
+
+#: templates/hcm_blog/post_detail.html:11
+msgid "Edit"
+msgstr "Редактировать"
+
+#: templates/hcm_blog/post_detail.html:12
+msgid "Delete"
+msgstr "Удалить"
+
+#: templates/hcm_blog/post_form.html:11
+msgid "Do you really want to delete post"
+msgstr "Вы действительно хотите удалить запись"
+
+#: templates/hcm_blog/post_form.html:13
+msgid "Yes"
+msgstr "Да"
+
+#: templates/hcm_blog/post_form.html:13
+msgid "Save"
+msgstr "Сохранить"
+
+#: templates/hcm_blog/post_form.html:14
+msgid "No"
+msgstr "Нет"
+
+#: templates/hcm_blog/post_form.html:14
+msgid "Cancel"
+msgstr "Отмена"
+
+#: templates/hcm_blog/post_list.html:12
+msgid "Create"
+msgstr "Создать"

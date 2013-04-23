@@ -1,9 +1,14 @@
 {% extends 'base.html' %}
 
+{% load i18n %}
+
 {% block content %}
     <div class="blog-post-list">
         {% for post in post_list %}
             <div class="blog-post-list-item"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></div>
         {% endfor %}
+    </div>
+    <div class="blog-post-create">
+        {% if perms.hcm_blog.add_post %}<a href="{% url 'blog_post_create' %}">{% trans 'Create' %}</a>{% endif %}
     </div>
 {% endblock %}

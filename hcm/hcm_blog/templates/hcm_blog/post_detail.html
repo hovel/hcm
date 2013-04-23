@@ -1,8 +1,16 @@
 {% extends 'base.html' %}
 
+{% load i18n %}
+
 {% block content %}
     <h1>{{ object.title }}</h1>
     <div>
         <div class="blog-post-detail-body">{{ object.body_html|safe }}</div>
+        {% if object.author == request.user or request.user.is_staff %}
+            <div class="blog-post-actions">
+                {% if perms.hcm_blog.change_post %}<a href="{{ object.get_update_url }}">{%  trans 'Edit' %}</a>{% endif %}
+                {% if perms.hcm_blog.delete_post %}<a href="{{ object.get_delete_url }}">{%  trans 'Delete' %}</a>{% endif %}
+            </div>
+        {% endif %}
     </div>
 {% endblock %}
