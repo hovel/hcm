@@ -21,6 +21,7 @@ urlpatterns = patterns('',
     url(r'^blog/', include('hcm_blog.urls')),
     url(r'^messages/', include('postman.urls')),
     url(r'^ajax_lookup/', include('ajax_select.urls')),
+    url(r'^markitup/', include('markitup.urls')),
     url(r'^admin/', include(admin.site.urls)),
 )
 

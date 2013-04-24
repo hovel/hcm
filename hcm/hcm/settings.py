@@ -159,7 +159,8 @@ INSTALLED_APPS = (
     'ajax_select',  # uses in postman, imagestore
     'unidecode',  # uses for slugify unicode strings
     'honeypot',  # uses for hcm_blog to prevent spam
-    # 'mailer', include for production in settings_local
+    'markitup',  # uses for hcm_blog editor
+    # 'mailer',  # include for production
 
     'userena',  # sign in/sign up app
     'postman',  # messages app
@@ -239,6 +240,10 @@ POSTMAN_AUTOCOMPLETER_APP = {
 }
 
 HONEYPOT_FIELD_NAME = 'comment_body'
+
+JQUERY_URL = None
+MARKITUP_SET = 'markitup/sets/markdown'
+MARKITUP_FILTER = ('markdown.markdown', {'safe_mode': 'remove', 'html_replacement_text': ''})
 
 try:
     from settings_local import *

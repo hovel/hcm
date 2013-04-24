@@ -68,7 +68,7 @@ msgstr "пользователь"
 
 #: models.py:61
 msgid "blog post comment body"
-msgstr "тест комментария"
+msgstr "текст комментария"
 
 #: models.py:62
 msgid "date/time submitted"

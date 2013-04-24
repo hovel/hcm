@@ -9,8 +9,34 @@
           charset="utf-8"/>
 {% endblock %}
 
-{% block extra_script %}
-    {{ block.super }}
+{% block extra_head %}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="{% static "js/ajax_csrf.js" %}"></script>
+{% endblock %}
+
+{% block nav %}
+    <ul class="nav">
+        <li id="tab_forum">
+            <a href="{% url 'pybb:index' %}">{% trans 'Forum' %}</a>
+        </li>
+        <li>
+            <a href="{% url 'news_news_list' %}">{% trans 'News' %}</a>
+        </li>
+        <li>
+            <a href="{% url 'blog_post_list' %}">{% trans 'Blogs' %}</a>
+        </li>
+        {% if user.is_staff %}
+            <li id="tab_admin">
+                <a href="{% url 'admin:index' %}">{% trans 'Admin' %}</a>
+            </li>
+        {% endif %}
+    </ul>
+{% endblock %}
+
+{% block script_base %}
+
+    <script src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
+    <script src="{% static "pinax/js/theme.js" %}"></script>
     <script type="text/javascript" src="{% static 'js/hcm.js' %}"></script>
 
     <script src="{{ STATIC_URL }}prettyphoto/js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
@@ -36,23 +62,5 @@
             $("a[rel^='gallery-image']").prettyPhoto(prettyparams)
         });
     </script>
-{% endblock %}
-
-{% block nav %}
-    <ul class="nav">
-        <li id="tab_forum">
-            <a href="{% url 'pybb:index' %}">{% trans 'Forum' %}</a>
-        </li>
-        <li>
-            <a href="{% url 'news_news_list' %}">{% trans 'News' %}</a>
-        </li>
-        <li>
-            <a href="{% url 'blog_post_list' %}">{% trans 'Blogs' %}</a>
-        </li>
-        {% if user.is_staff %}
-            <li id="tab_admin">
-                <a href="{% url 'admin:index' %}">{% trans 'Admin' %}</a>
-            </li>
-        {% endif %}
-    </ul>
+    {% block extra_script %}{% endblock %}
 {% endblock %}

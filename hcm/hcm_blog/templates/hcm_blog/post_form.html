@@ -2,6 +2,11 @@
 
 {% load i18n %}
 
+{% block extra_head %}
+    {{ block.super }}
+    {{ form.media }}
+{% endblock %}
+
 {% block content %}
     <div class="blog-post-form">
         <form method="post">
