@@ -84,7 +84,7 @@ msgstr "комментарий к записи в блоге"
 
 #: models.py:67
 msgid "blog post comments"
-msgstr "комментарии к записи в блоге"
+msgstr "комментарии к записям в блогах"
 
 #: templates/hcm_blog/post_detail.html:11
 msgid "Edit"

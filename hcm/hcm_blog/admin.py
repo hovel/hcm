@@ -1,5 +1,5 @@
 from django.contrib import admin
-from hcm_blog.models import Post
+from hcm_blog.models import Post, PostComment
 
 
 class BlogPostAdmin(admin.ModelAdmin):
@@ -16,3 +16,4 @@ class BlogPostAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Post, BlogPostAdmin)
+admin.site.register(PostComment)
