@@ -1,6 +1,8 @@
+from django.contrib.auth.decorators import login_required
 from django.core.exceptions import PermissionDenied
 from django.core.urlresolvers import reverse
 from django.db.models import Q
+from django.utils.decorators import method_decorator
 from django.views.generic.dates import DateDetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
@@ -59,6 +61,7 @@ class PostCreateView(CreateView):
     model = Post
     form_class = PostCreateUpdateForm
 
+    @method_decorator(login_required)
     def dispatch(self, request, *args, **kwargs):
         if not request.user.has_perms('hcm_blog.add_post'):
             raise PermissionDenied
@@ -75,6 +78,7 @@ class PostUpdateView(UpdateView):
     model = Post
     form_class = PostCreateUpdateForm
 
+    @method_decorator(login_required)
     def dispatch(self, request, *args, **kwargs):
         if not request.user.has_perms('hcm_blog.change_post'):
             raise PermissionDenied
@@ -92,6 +96,7 @@ class PostDeleteView(DeleteView):
     model = Post
     template_name = 'hcm_blog/post_form.html'
 
+    @method_decorator(login_required)
     def dispatch(self, request, *args, **kwargs):
         if not request.user.has_perms('hcm_blog.delete_post'):
             raise PermissionDenied
