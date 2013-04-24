@@ -10,6 +10,7 @@ pinax-theme-bootstrap
 django-notification
 django-mailer
 unidecode
+django-honeypot
 -e git+https://github.com/hovel/pybbm.git#egg=pybbm
 -e git+https://github.com/hovel/imagestore.git#egg=imagestore
 -e hg+https://bitbucket.org/psam/django-postman#egg=django-postman

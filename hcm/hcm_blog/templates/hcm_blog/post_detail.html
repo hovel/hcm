@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% load i18n %}
+{% load i18n honeypot %}
 
 {% block content %}
     <h1>{{ object.title }}</h1>
@@ -12,5 +12,26 @@
                 {% if perms.hcm_blog.delete_post %}<a href="{{ object.get_delete_url }}">{%  trans 'Delete' %}</a>{% endif %}
             </div>
         {% endif %}
+        <div class="blog-post-comments">
+            {% for comment in object.comments.all %}
+                {% if not comment.is_removed %}
+                    <div class="blog-post-comment">
+                        {{ comment.user }} ({{ comment.submit_date }}): {{ comment.body }}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="blog-post-comment-form">
+            {% if user.is_authenticated %}
+                <form method="post" action="{% url 'blog_post_comment' pk=object.pk %}">
+                    {% csrf_token %}
+                    {% render_honeypot_field %}
+                    {{ comment_form }}
+                    <input type="submit" value="{% trans 'Post comment' %}">
+                </form>
+            {% else %}
+                {% trans 'Please, ' %} <a href="{% url 'userena_signin' %}?next={{ request.path }}">{% trans 'sign in' %}</a> {% trans 'before post comments' %}
+            {% endif %}
+        </div>
     </div>
 {% endblock %}

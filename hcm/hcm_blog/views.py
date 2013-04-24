@@ -2,12 +2,14 @@ from django.contrib.auth.decorators import login_required
 from django.core.exceptions import PermissionDenied
 from django.core.urlresolvers import reverse
 from django.db.models import Q
+from django.shortcuts import get_object_or_404
+from django.utils import timezone
 from django.utils.decorators import method_decorator
 from django.views.generic.dates import DateDetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
-from hcm_blog.forms import PostCreateUpdateForm
-from hcm_blog.models import Post
+from hcm_blog.forms import PostCreateUpdateForm, PostCommentForm
+from hcm_blog.models import Post, PostComment
 
 
 try:
@@ -24,7 +26,10 @@ except ImportError:
 class PostFilterMixin(object):
     def get_queryset(self):
         qs = super(PostFilterMixin, self).get_queryset()
-        return qs.filter(Q(is_published=True) | Q(author=self.request.user))
+        if self.request.user.is_authenticated():
+            return qs.filter(Q(is_published=True) | Q(author=self.request.user))
+        else:
+            return qs.filter(is_published=True)
 
 
 class PostListView(PostFilterMixin, ListView):
@@ -55,6 +60,11 @@ class PostDetailView(PostFilterMixin, DateDetailView):
     month_format = '%m'
     day_format = '%d'
     year_format = '%Y'
+
+    def get_context_data(self, **kwargs):
+        ctx = super(PostDetailView, self).get_context_data(**kwargs)
+        ctx['comment_form'] = PostCommentForm
+        return ctx
 
 
 class PostCreateView(CreateView):
@@ -116,3 +126,32 @@ class PostDeleteView(DeleteView):
 
     def get_success_url(self):
         return reverse('blog_post_list')
+
+
+class PostCommentCreateView(CreateView):
+    model = PostComment
+    form_class = PostCommentForm
+    template_name = 'hcm_blog/post_detail.html'
+
+    @method_decorator(login_required)
+    def dispatch(self, request, *args, **kwargs):
+        self.blog_post = get_object_or_404(Post, pk=kwargs['pk'])
+
+        return super(PostCommentCreateView, self).dispatch(request, *args, **kwargs)
+
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.user = self.request.user
+        self.object.post = self.blog_post
+        self.object.submit_date = timezone.now()
+        self.object.save()
+        return super(PostCommentCreateView, self).form_valid(form)
+
+    def get_success_url(self):
+        return self.blog_post.get_absolute_url()
+
+    def get_context_data(self, **kwargs):
+        ctx = super(PostCommentCreateView, self).get_context_data(**kwargs)
+        ctx['comment_form'] = ctx['form']
+        ctx['object'] = self.blog_post
+        return ctx

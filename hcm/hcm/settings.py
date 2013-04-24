@@ -158,6 +158,7 @@ INSTALLED_APPS = (
     'notification',  # uses in postman
     'ajax_select',  # uses in postman, imagestore
     'unidecode',  # uses for slugify unicode strings
+    'honeypot',  # uses for hcm_blog to prevent spam
     # 'mailer', include for production in settings_local
 
     'userena',  # sign in/sign up app
@@ -236,6 +237,8 @@ POSTMAN_AUTO_MODERATE_AS = True
 POSTMAN_AUTOCOMPLETER_APP = {
     'arg_default': 'user'
 }
+
+HONEYPOT_FIELD_NAME = 'comment_body'
 
 try:
     from settings_local import *

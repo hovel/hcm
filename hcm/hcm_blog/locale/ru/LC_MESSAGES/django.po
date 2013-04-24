@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-24 01:36+0400\n"
+"POT-Creation-Date: 2013-04-24 22:00+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -54,13 +54,37 @@ msgstr "опубликовать"
 msgid "tags"
 msgstr "теги"
 
-#: models.py:29
+#: models.py:29 models.py:60
 msgid "blog post"
 msgstr "сообщение в блоге"
 
 #: models.py:30
 msgid "blog posts"
 msgstr "сообщения в блоге"
+
+#: models.py:59
+msgid "user"
+msgstr "пользователь"
+
+#: models.py:61
+msgid "blog post comment body"
+msgstr "тест комментария"
+
+#: models.py:62
+msgid "date/time submitted"
+msgstr "дата публикации"
+
+#: models.py:63
+msgid "is removed"
+msgstr "удален"
+
+#: models.py:66
+msgid "blog post comment"
+msgstr "комментарий к записи в блоге"
+
+#: models.py:67
+msgid "blog post comments"
+msgstr "комментарии к записи в блоге"
 
 #: templates/hcm_blog/post_detail.html:11
 msgid "Edit"
@@ -69,6 +93,22 @@ msgstr "Редактировать"
 #: templates/hcm_blog/post_detail.html:12
 msgid "Delete"
 msgstr "Удалить"
+
+#: templates/hcm_blog/post_detail.html:30
+msgid "Post comment"
+msgstr "Оставить комментарий"
+
+#: templates/hcm_blog/post_detail.html:33
+msgid "Please, "
+msgstr "Пожалуйста, "
+
+#: templates/hcm_blog/post_detail.html:33
+msgid "sign in"
+msgstr "войдите"
+
+#: templates/hcm_blog/post_detail.html:33
+msgid "before post comments"
+msgstr "прежде чем оставлять комментарии"
 
 #: templates/hcm_blog/post_form.html:11
 msgid "Do you really want to delete post"
