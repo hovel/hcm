@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% load i18n honeypot %}
+{% load i18n honeypot bootstrap_tags %}
 
 {% block content %}
     <h1>{{ object.title }}</h1>
@@ -26,7 +26,7 @@
                 <form method="post" action="{% url 'blog_post_comment' pk=object.pk %}">
                     {% csrf_token %}
                     {% render_honeypot_field %}
-                    {{ comment_form }}
+                    {{ comment_form|as_bootstrap }}
                     <input type="submit" value="{% trans 'Post comment' %}">
                 </form>
             {% else %}

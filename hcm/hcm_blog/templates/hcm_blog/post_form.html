@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% load i18n %}
+{% load i18n bootstrap_tags %}
 
 {% block extra_head %}
     {{ block.super }}
@@ -11,7 +11,7 @@
     <div class="blog-post-form">
         <form method="post">
             {% csrf_token %}
-            {{ form }}
+            {{ form|as_bootstrap }}
             {% if action == 'delete' %}
                 {% trans 'Do you really want to delete post' %}: {{ object.title }}?<br>
             {% endif %}
