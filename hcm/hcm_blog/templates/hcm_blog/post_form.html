@@ -16,7 +16,7 @@
                 {% trans 'Do you really want to delete post' %}: {{ object.title }}?<br>
             {% endif %}
             <input type="submit" value="{% if action == 'delete' %}{% trans 'Yes' %}{% else %}{% trans 'Save' %}{% endif %}">
-            <a href="{{ object.get_absolute_url }}">{% if action == 'delete' %}{% trans 'No' %}{% else %}{% trans 'Cancel' %}{% endif %}</a>
+            <a href="{% if object %}{{ object.get_absolute_url }}{% else %}{% url 'blog_post_list' %}{% endif %}">{% if action == 'delete' %}{% trans 'No' %}{% else %}{% trans 'Cancel' %}{% endif %}</a>
         </form>
     </div>
 {% endblock %}

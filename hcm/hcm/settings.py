@@ -227,8 +227,8 @@ AJAX_LOOKUP_CHANNELS = {
     'user': ('hcm_profile.lookups', 'UserLookup'),
     'tag': {'model': 'tagging.Tag', 'search_field': 'name'}
 }
-AJAX_SELECT_BOOTSTRAP = True
-AJAX_SELECT_INLINES = 'inline'
+AJAX_SELECT_BOOTSTRAP = False
+AJAX_SELECT_INLINES = 'staticfiles'
 
 IMAGESTORE_IMAGE_FORM = 'hcm.forms.HcmImageForm'
 

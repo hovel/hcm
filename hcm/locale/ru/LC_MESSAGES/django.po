@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-24 01:33+0400\n"
+"POT-Creation-Date: 2013-04-25 21:16+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,51 +50,47 @@ msgstr "Последние новости"
 msgid "Latest blog posts"
 msgstr "Последние сообщения в блогах"
 
-#: templates/profile_detail.html:20
-msgid "Empty album"
-msgstr "Пустой альбом"
+#: templates/profile_detail.html:8
+msgid "User albums"
+msgstr "Альбомы пользователя"
 
-#: templates/profile_detail.html:27
-msgid "user"
-msgstr "пользователь"
-
-#: templates/profile_detail.html:38
+#: templates/profile_detail.html:12
 msgid "Name"
 msgstr "Имя"
 
-#: templates/profile_detail.html:42
+#: templates/profile_detail.html:16
 msgid "Email"
 msgstr "Адрес email"
 
-#: templates/profile_detail.html:46
+#: templates/profile_detail.html:20
 msgid "Age"
 msgstr "Возраст"
 
-#: templates/profile_detail.html:50
+#: templates/profile_detail.html:24
 msgid "Website"
 msgstr "Адрес веб-сайта"
 
-#: templates/profile_detail.html:54
+#: templates/profile_detail.html:28
 msgid "Location"
 msgstr "Местоположение"
 
-#: templates/profile_detail.html:58
+#: templates/profile_detail.html:32
 msgid "About me"
 msgstr "Обо мне"
 
-#: templates/site_base.html:44
+#: templates/site_base.html:21
 msgid "Forum"
 msgstr "Форум"
 
-#: templates/site_base.html:47
+#: templates/site_base.html:24
 msgid "News"
 msgstr "Новости"
 
-#: templates/site_base.html:50
+#: templates/site_base.html:27
 msgid "Blogs"
 msgstr "Блоги"
 
-#: templates/site_base.html:54
+#: templates/site_base.html:31
 msgid "Admin"
 msgstr "Админка"
 

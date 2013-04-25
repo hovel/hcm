@@ -5,12 +5,13 @@
 {% block site_brand %}<a class="brand" href="/">HCM</a>{% endblock %}
 
 {% block extra_style %}
-    <link rel="stylesheet" href="{{ STATIC_URL }}prettyphoto/css/prettyPhoto.css" type="text/css" media="screen"
-          charset="utf-8"/>
+    <link rel="stylesheet" href="{% static 'prettyphoto/css/prettyPhoto.css' %}" type="text/css" media="screen" />
+    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1/themes/black-tie/jquery-ui.css" type="text/css">
 {% endblock %}
 
 {% block extra_head %}
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
     <script src="{% static "js/ajax_csrf.js" %}"></script>
 {% endblock %}
 
