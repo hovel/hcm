@@ -11,7 +11,11 @@ django-notification
 django-mailer
 unidecode
 django-honeypot
-django-markitup==tip
+django-markitup
+django-guardian
+easy-thumbnails
+django-ajax-selects
+django-userena
 -e git+https://github.com/hovel/pybbm.git#egg=pybbm
 -e git+https://github.com/hovel/imagestore.git#egg=imagestore
 -e hg+https://bitbucket.org/psam/django-postman#egg=django-postman
