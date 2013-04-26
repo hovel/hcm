@@ -127,10 +127,10 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'postman.context_processors.inbox',
 )
 
-ROOT_URLCONF = 'hcm.urls'
+ROOT_URLCONF = '{{ project_name }}.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = 'hcm.wsgi.application'
+WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
 
 TEMPLATE_DIRS = (
     os.path.join(PROJECT_ROOT, '../templates'),
@@ -166,7 +166,7 @@ INSTALLED_APPS = (
     'postman',  # messages app
     'pybb',  # forum app
     'imagestore',  # albums app
-    'hcm',  # hcm core app
+    '{{ project_name }}',  # hcm core app
     'hcm_news',  # hcm news app
     'hcm_blog',  # hcm blog app
     'hcm_profile',  # hcm profile app
@@ -230,7 +230,7 @@ AJAX_LOOKUP_CHANNELS = {
 AJAX_SELECT_BOOTSTRAP = False
 AJAX_SELECT_INLINES = 'staticfiles'
 
-IMAGESTORE_IMAGE_FORM = 'hcm.forms.HcmImageForm'
+IMAGESTORE_IMAGE_FORM = '{{ project_name }}.forms.HcmImageForm'
 
 POSTMAN_DISALLOW_ANONYMOUS = True
 POSTMAN_DISABLE_USER_EMAILING = True
