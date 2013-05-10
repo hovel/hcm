@@ -1,8 +1,8 @@
-{% extends 'base.html' %}
+{% extends 'hcm_news/base.html' %}
 
 {% load news_tags %}
 
-{% block content %}
+{% block news_content %}
     <h1>{{ object.title }}</h1>
     <div>
         <div class="news-detail-body">{{ object.body|markdown_str|safe }}</div>

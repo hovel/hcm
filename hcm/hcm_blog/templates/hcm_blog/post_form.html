@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'hcm_blog/base.html' %}
 
 {% load i18n bootstrap_tags %}
 
@@ -7,7 +7,7 @@
     {{ form.media }}
 {% endblock %}
 
-{% block content %}
+{% block blog_content %}
     <div class="blog-post-form">
         <form method="post">
             {% csrf_token %}
