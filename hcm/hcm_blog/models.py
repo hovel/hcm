@@ -3,6 +3,7 @@ from django.contrib.auth.models import Permission
 from django.core.urlresolvers import reverse
 from django.db import models
 from django.contrib.auth import get_user_model
+from django.db.models.manager import Manager
 from django.db.models.signals import post_save
 from django.utils.encoding import python_2_unicode_compatible, smart_text
 from django.utils.text import slugify
@@ -10,6 +11,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.utils.timezone import now
 import markdown
 from tagging.fields import TagField
+from tagging.managers import ModelTaggedItemManager
 from unidecode import unidecode
 
 
@@ -24,6 +26,9 @@ class Post(models.Model):
     date_published = models.DateField(verbose_name=_('date published'), default=now)
     is_published = models.BooleanField(verbose_name=_('is published'), default=True)
     tags = TagField(verbose_name=_('tags'))
+
+    objects = Manager()
+    tagged = ModelTaggedItemManager()
 
     class Meta:
         verbose_name = _('blog post')
